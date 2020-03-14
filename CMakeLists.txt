@@ -54,6 +54,17 @@ add_definitions(
         -D_CRT_SECURE_NO_WARNINGS
 )
 
+# Tutorial 1
+add_executable(homework0_test
+        homework0_test/homework0.cpp
+        )
+target_link_libraries(homework0_test
+        ${ALL_LIBS}
+        )
+# Xcode and Visual working directories
+set_target_properties(homework0_test PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/homework0_test/")
+create_target_launcher(homework0_test WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/homework0_test/")
+
 # Tutorial 2
 add_executable(homework1_two_triangles
         homework1_two_triangles/homework1.cpp
@@ -71,6 +82,40 @@ target_link_libraries(homework1_two_triangles
 set_target_properties(homework1_two_triangles PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/homework1_two_triangles/")
 create_target_launcher(homework1_two_triangles WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/homework1_two_triangles/")
 create_default_target_launcher(homework1_two_triangles WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/homework1_two_triangles/") # tut 1 is not the default or people would complain that tut 2 doesn't work
+
+# Tutorial 3
+add_executable(tutorial03_matrices
+        tutorial03_matrices/tutorial03.cpp
+        common/shader.cpp
+        common/shader.hpp
+
+        tutorial03_matrices/OuterFragmentShader.fragmentshader
+        tutorial03_matrices/InnerFragmentShader.fragmentshader
+        tutorial03_matrices/SimpleVertexShader.vertexshader
+        )
+#set_target_properties(tutorial03_matrices PROPERTIES RUNTIME_OUTPUT_DIRECTORY /test1)
+target_link_libraries(tutorial03_matrices
+        ${ALL_LIBS}
+        )
+# Xcode and Visual working directories
+set_target_properties(tutorial03_matrices PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/tutorial03_matrices/")
+create_target_launcher(tutorial03_matrices WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/tutorial03_matrices/") # Visual
+
+# Tutorial 4
+add_executable(tutorial04_colored_cube
+        tutorial04_colored_cube/tutorial04.cpp
+        common/shader.cpp
+        common/shader.hpp
+
+        tutorial04_colored_cube/TransformVertexShader.vertexshader
+        tutorial04_colored_cube/ColorFragmentShader.fragmentshader
+        )
+target_link_libraries(tutorial04_colored_cube
+        ${ALL_LIBS}
+        )
+# Xcode and Visual working directories
+set_target_properties(tutorial04_colored_cube PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/tutorial04_colored_cube/")
+create_target_launcher(tutorial04_colored_cube WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/tutorial04_colored_cube/")
 
 
 SOURCE_GROUP(common REGULAR_EXPRESSION ".*/common/.*")
