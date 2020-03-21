@@ -84,38 +84,37 @@ create_target_launcher(homework1_two_triangles WORKING_DIRECTORY "${CMAKE_CURREN
 create_default_target_launcher(homework1_two_triangles WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/homework1_two_triangles/") # tut 1 is not the default or people would complain that tut 2 doesn't work
 
 # Tutorial 3
-add_executable(tutorial03_matrices
-        tutorial03_matrices/tutorial03.cpp
+add_executable(homework2_camera
+        homework2_camera/homework2.cpp
         common/shader.cpp
         common/shader.hpp
 
-        tutorial03_matrices/OuterFragmentShader.fragmentshader
-        tutorial03_matrices/InnerFragmentShader.fragmentshader
-        tutorial03_matrices/SimpleVertexShader.vertexshader
+        homework2_camera/OuterFragmentShader.fragmentshader
+        homework2_camera/InnerFragmentShader.fragmentshader
         )
-#set_target_properties(tutorial03_matrices PROPERTIES RUNTIME_OUTPUT_DIRECTORY /test1)
-target_link_libraries(tutorial03_matrices
+#set_target_properties(homework2_camera PROPERTIES RUNTIME_OUTPUT_DIRECTORY /test1)
+target_link_libraries(homework2_camera
         ${ALL_LIBS}
         )
 # Xcode and Visual working directories
-set_target_properties(tutorial03_matrices PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/tutorial03_matrices/")
-create_target_launcher(tutorial03_matrices WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/tutorial03_matrices/") # Visual
+set_target_properties(homework2_camera PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/homework2_camera/")
+create_target_launcher(homework2_camera WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/homework2_camera/") # Visual
 
 # Tutorial 4
-add_executable(tutorial04_colored_cube
-        tutorial04_colored_cube/tutorial04.cpp
+add_executable(homework3_tetrahedron
+        homework3_tetrahedron/homework3.cpp
         common/shader.cpp
         common/shader.hpp
 
-        tutorial04_colored_cube/TransformVertexShader.vertexshader
-        tutorial04_colored_cube/ColorFragmentShader.fragmentshader
+        homework3_tetrahedron/TransformVertexShader.vertexshader
+        homework3_tetrahedron/ColorFragmentShader.fragmentshader
         )
-target_link_libraries(tutorial04_colored_cube
+target_link_libraries(homework3_tetrahedron
         ${ALL_LIBS}
         )
 # Xcode and Visual working directories
-set_target_properties(tutorial04_colored_cube PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/tutorial04_colored_cube/")
-create_target_launcher(tutorial04_colored_cube WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/tutorial04_colored_cube/")
+set_target_properties(homework3_tetrahedron PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/homework3_tetrahedron/")
+create_target_launcher(homework3_tetrahedron WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/homework3_tetrahedron/")
 
 
 SOURCE_GROUP(common REGULAR_EXPRESSION ".*/common/.*")
