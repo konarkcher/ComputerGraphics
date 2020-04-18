@@ -246,22 +246,6 @@ public:
             vertical_angle_ = -3.14f / 2.0f;
         }
 
-        glm::vec3 direction(
-                sin(horizontal_angle_),
-                0.0f,
-                cos(horizontal_angle_)
-        );
-
-        glm::vec3 right = CameraRight();
-
-        glm::vec3 final_direction = glm::vec3(0.0f, 0.0f, 0.0f);
-
-        if (glm::length(final_direction) > 0.0f) {
-            final_direction /= glm::length(final_direction);
-        }
-
-        direction_ = final_direction;
-
         glm::vec3 camera_direction = CameraDirection();
 
         if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
